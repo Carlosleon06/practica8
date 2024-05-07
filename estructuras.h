@@ -1,5 +1,5 @@
-#ifndef QUEUES_H
-#define QUEUES_H
+#ifndef _QUEUES_H
+#define _QUEUES_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,13 +8,13 @@ typedef struct dato
 {
     char *nombre;
     short int paginas;
-}Dato;
+} Dato;
 
 typedef struct nodo
 {
     Dato archivo;
     struct nodo *sig;
-}Nodo;
+} Nodo;
 
 typedef struct cola
 {
@@ -22,14 +22,19 @@ typedef struct cola
     Nodo *fin;
     short int cantidad_nodos;
     struct cola *sig;
-}Cola;
+} Cola;
 
 typedef struct cola_main
 {
     Cola *inicio;
     Cola *fin;
     short int cantidad_colas;
-}Cola_main;
+} Cola_main;
+
+typedef struct pila
+{
+    Cola *cima;
+    short int cantidad_nodos;
+} Pila;
 
 #endif
-

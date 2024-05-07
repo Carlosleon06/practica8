@@ -1,15 +1,19 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "estructuras.h"
+#include "funciones.h"
 
 int main(void)
 {
-
+    Cola_main cola_main;
+    Nodo *nodo;    
     int option;
     int corre_programa=1;
+    inicializar_cola_main(&cola_main);
 
     while(corre_programa)
-    {
-
-        system("cls"); //WINDOWS    
+    {  
         printf("\n\r [0] CAMBIAR PRIORIDAD");
         printf("\n\r [1] MOSTRAR COLA DE IMPRESION");
         printf("\n\r [2] AGREGAR ARCHIVO");
@@ -23,27 +27,25 @@ int main(void)
         switch(option)
         {
         case 0:
-                //MOSTRAR CONTENIDO DE LA CAJA
-                system("pause");
+                invertir(&cola_main);
                 break;
         case 1:
-
-                system("pause");
+                imprimir_cola_main(&cola_main);
                 break;
 
         case 2:
-
+                agregar_archivo(nodo, &cola_main);
                 break;
 
         case 3:
-                corre_programa=0;
+                eliminar_archivo(&cola_main);
                 break;
         case 4:
-
+                eliminar_todo(&cola_main);
                 break;
 
         case 5:
-
+                procesar(&cola_main);
                 break;
         case 6:
                 corre_programa=0;
@@ -52,8 +54,6 @@ int main(void)
         default:
                 break;
         }
-        printf("\n\n\r");
-        //WINDOWS
     }
     printf("\n\n\r");
     return 0;
